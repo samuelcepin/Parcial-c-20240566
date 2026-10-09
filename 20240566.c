@@ -19,13 +19,32 @@ int main() {
         return 0;
     }
 
-    // 2. Validamos las restricciones críticas según el mandato del profesor
+    // Validamos las restricciones críticas según el mandato del profe
     if (N < 1 || N > 30 || M < 1 || M > 30 || 
         L < 0 || L > 1000 || U < 0 || U > 1000 || L > U) {
         printf("ERROR\n");
         return 0;
     }
 
+    // 3. Ahora voy con la declaracion de la matriz y leer los datos
+    int matriz[30][30];
+    int i, j;
+
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < M; j++) {
+            // Aqui se lee un numero actual
+            if (scanf("%d", &matriz[i][j]) != 1) {
+                printf("ERROR\n");
+                return 0;
+            }
+            
+            // Validamos que la latencia se encuentre entre 0 y 1000
+            if (matriz[i][j] < 0 || matriz[i][j] > 1000) {
+                printf("ERROR\n");
+                return 0;
+            }
+        }
+    }
 
     return 0;
 }
