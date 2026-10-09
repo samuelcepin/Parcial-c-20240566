@@ -1,9 +1,25 @@
-﻿Parcial de algoritmo en C
+﻿# programacion_para_mecatronicos_sabados
 
-Estudiante: Samuel Cepin
 
-Matrícula: 2024-0566
+# Parcial de algoritmo en C
 
-Red: variaciones de latencia anormales
+* **Estudiante:** Samuel R. Cepin
+* **Matrícula:** 2024-0566
+* **Reto Asignado:** Red: variaciones de latencia anormales
+
+
+## Descripción
+
+
+## Compilación y ejecución
+
+
+## Diseño
+
+
+## Pruebas
+
+
+## Estado actual
 
         
