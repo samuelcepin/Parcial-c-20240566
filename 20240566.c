@@ -46,5 +46,20 @@ int main() {
         }
     }
 
+    // El siguiente movimiento es preparar variables para el análisis
+    
+    // Un vector (arreglo) para ir sumando el impacto de cada columna.
+    // Usamos un ciclo para asegurarnos de que todas empiecen en 0.
+    int impacto_columnas[30];
+    int col;
+    for (col = 0; col < M; col++) {
+        impacto_columnas[col] = 0; 
+    }
+
+    // Variables globales para recordar quién va ganando como "Fila prioritaria"
+    int fila_prioritaria = 0;
+    int max_racha_matriz = -1;
+    int max_impacto_matriz = -1;
+
     return 0;
-}
+}     
