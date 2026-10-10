@@ -1,5 +1,5 @@
 /*************************************************************************************/
-/*                   Programación para mecatrónicos                                  */
+/*                  Programación para mecatrónicos                                   */
 /*  Nombre:    Samuel Cepin                                                          */
 /*  Matricula: 2024-0566                                                             */
 /*  Seccion:   Sabados                                                               */
@@ -23,7 +23,7 @@ int main() {
     if (N < 1 || N > 30 || M < 1 || M > 30 || 
         L < 0 || L > 1000 || U < 0 || U > 1000 || L > U) {
         printf("ERROR\n");
-        return 0;
+        return 0; 
     }
 
     // 3. Ahora voy con la declaracion de la matriz y leer los datos
@@ -61,5 +61,24 @@ int main() {
     int max_racha_matriz = -1;
     int max_impacto_matriz = -1;
 
+    // Vamos ahora con el recorrer la matriz y calcular 'd'
+    
+    // Volvemos a recorrer la matriz exactamente fila por fila
+    for (i = 0; i < N; i++) {
+        // esto son los marcadores de la fila actual se ponen en cero al iniciar cada fila
+        int racha_actual = 0;
+        int max_racha_fila = 0;
+        int impacto_fila = 0;
+
+        for (j = 0; j < M; j++) {
+            // Ahora bien lo que toca es Calcular la distancia 'd' solo si no estamos en la primera columna
+            int d = 0;
+            if (j > 0) {
+                d = matriz[i][j] - matriz[i][j-1];
+            }
+            
+        }
+    }
+    
     return 0;
-}     
+}
