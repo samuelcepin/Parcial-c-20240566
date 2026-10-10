@@ -115,6 +115,22 @@ int main() {
             }
         }
     }
+
+    // Ahora vamos por fin el ultimo paso es buscar la columna destacada y mostrar resultados
     
+    int columna_destacada = 0;
+    int max_impacto_col = -1;
+    
+    // Recorremos el vector de los impactos de las columnas para ver cual ganó
+    for (col = 0; col < M; col++) {
+        if (impacto_columnas[col] > max_impacto_col) {
+            max_impacto_col = impacto_columnas[col];
+            columna_destacada = col;
+        }
+    }
+    
+    // Sumamos + 1 para mostrar el formato humano (fila 1, columna 1...) 
+    printf("%d %d\n", fila_prioritaria + 1, columna_destacada + 1);
+
     return 0;
 }
