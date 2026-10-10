@@ -61,7 +61,7 @@ int main() {
     int max_racha_matriz = -1;
     int max_impacto_matriz = -1;
 
-    // Vamos ahora con el recorrer la matriz y calcular 'd'
+    // Lo siguiente es que vamos ahora con el recorrer la matriz y calcular 'd'
     
     // Volvemos a recorrer la matriz exactamente fila por fila
     for (i = 0; i < N; i++) {
@@ -75,8 +75,44 @@ int main() {
             int d = 0;
             if (j > 0) {
                 d = matriz[i][j] - matriz[i][j-1];
+                
+                // Aqui lo que toca es evaluar si la distancia 'd' genera un evento
+                if (d < L || d > U) {
+                    // Sacamos el impacto
+                    int impacto_actual = d;
+                    if (impacto_actual < 0) {
+                        impacto_actual = -impacto_actual;
+                    }
+                    
+                    // Sumamos el impacto al total de esta fila y de esta columna
+                    impacto_fila = impacto_fila + impacto_actual;
+                    impacto_columnas[j] = impacto_columnas[j] + impacto_actual;
+                    
+                    // Aumentamos la racha y verificamos si rompimos el record de la fila
+                    racha_actual++;
+                    if (racha_actual > max_racha_fila) {
+                        max_racha_fila = racha_actual;
+                    }
+                } else {
+                    // Si el numero esta dentro del limite normal lo que la racha como tal se rompe
+                    racha_actual = 0;
+                }
             }
-            
+        }
+        
+        // Lo siguiente sera hacer que la fila se convierte en la prioritaria
+
+        // Comparamos los records de esta fila con los records de toda la matriz
+        if (max_racha_fila > max_racha_matriz) {
+            max_racha_matriz = max_racha_fila;
+            max_impacto_matriz = impacto_fila;
+            fila_prioritaria = i;
+        } else if (max_racha_fila == max_racha_matriz) {
+            // En caso de que haya un empate en las rachas, va a ganar el que tenga mayor impacto
+            if (impacto_fila > max_impacto_matriz) {
+                max_impacto_matriz = impacto_fila;
+                fila_prioritaria = i;
+            }
         }
     }
     
